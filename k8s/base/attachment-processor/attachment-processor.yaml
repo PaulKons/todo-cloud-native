@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attachment-processor
+  namespace: todo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: attachment-processor
+  template:
+    metadata:
+      labels:
+        app: attachment-processor
+    spec:
+      containers:
+        - name: attachment-processor
+          image: localhost:32000/todo-attachment-processor:1.0
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: todo-config
+                  key: NODE_ENV
+
+            - name: RABBITMQ_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: todo-config
+                  key: RABBITMQ_URL
+
+            - name: ATTACHMENT_QUEUE
+              valueFrom:
+                configMapKeyRef:
+                  name: todo-config
+                  key: ATTACHMENT_QUEUE
+
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: todo-secrets
+                  key: MONGODB_URI
+
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: todo-secrets
+                  key: MONGO_URI

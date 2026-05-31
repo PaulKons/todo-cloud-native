@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "697de0117bd815bfb79ffc46"
+  },
+  "text": "hhh",
+  "createdAt": {
+    "$date": "2026-01-31T10:57:21.493Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T10:57:21.493Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697f3f5db018959739da150e"
+  },
+  "userId": {
+    "$oid": "697e061f059aff4cfc3caf39"
+  },
+  "text": "nipson anomimata mimona opsin1",
+  "createdAt": {
+    "$date": "2026-02-01T11:56:13.944Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-01T11:56:18.497Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697fa08a5d3e6a9aee449b27"
+  },
+  "userId": {
+    "$oid": "697e03c9059aff4cfc3caf1a"
+  },
+  "text": "This is a new note",
+  "createdAt": {
+    "$date": "2026-02-01T18:50:50.785Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-01T18:51:14.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6980ca7b1776f8b36dbdbc8e"
+  },
+  "userId": {
+    "$oid": "697e03c9059aff4cfc3caf1a"
+  },
+  "text": "Note No2",
+  "createdAt": {
+    "$date": "2026-02-02T16:02:03.320Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-02T16:02:03.320Z"
+  },
+  "__v": 0
+}]

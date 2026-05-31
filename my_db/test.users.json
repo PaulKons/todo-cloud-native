@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "697e0088059aff4cfc3caef2"
+  },
+  "email": "test@test.com",
+  "passwordHash": "$2b$10$73/BG13C8Aj1g9CtphGmm.Z5vFGT5aVAVWOYNca9KcPQjdhoWoZvu",
+  "createdAt": {
+    "$date": "2026-01-31T13:15:52.860Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T13:15:52.860Z"
+  },
+  "__v": 0,
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "697e03c9059aff4cfc3caf1a"
+  },
+  "email": "admin@gmail.com",
+  "passwordHash": "$2b$10$FTUX3NFE8O02lrIrMIw1QeYqcY8gZEfRngjVonRQ1Mh7QEyayBqrW",
+  "createdAt": {
+    "$date": "2026-01-31T13:29:45.433Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T13:29:45.433Z"
+  },
+  "__v": 0,
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "697e061f059aff4cfc3caf39"
+  },
+  "email": "user1@gmail.com",
+  "passwordHash": "$2b$10$r0CkwIw6tB6KD8kminHKZuuHzhfGmmnLvLdsGFeo/d59qBwbdmtW6",
+  "createdAt": {
+    "$date": "2026-01-31T13:39:43.022Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T13:39:43.022Z"
+  },
+  "__v": 0,
+  "role": "user"
+},
+{
+  "_id": {
+    "$oid": "697f5c785d3e6a9aee4497f0"
+  },
+  "email": "user2@hotmai.com",
+  "passwordHash": "$2b$10$y31CGcm6rI8Cd9aiO2M4/OlUVQw8nU5xoRyuUGP5ZWbECr5zHq7CS",
+  "role": "user",
+  "createdAt": {
+    "$date": "2026-02-01T14:00:24.852Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-01T14:00:24.852Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,10 @@
+mkdir -p k8s/base
+mkdir -p k8s/base/config
+mkdir -p k8s/base/secrets
+mkdir -p k8s/base/rabbitmq
+mkdir -p k8s/base/minio
+mkdir -p k8s/base/backend
+mkdir -p k8s/base/frontend
+mkdir -p k8s/base/reminder-worker
+mkdir -p k8s/base/attachment-processor
+mkdir -p k8s/base/notification-function

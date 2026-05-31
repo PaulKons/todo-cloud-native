@@ -1,0 +1,82 @@
+services:
+  backend:
+    build: ./backend
+    container_name: todo-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: todo-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_PROXY_TARGET=http://backend:5000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: todo-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio-data:/data
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: todo-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: todo
+      RABBITMQ_DEFAULT_PASS: todo
+    restart: unless-stopped
+
+  reminder-worker:
+    build: ./reminder-worker
+    container_name: todo-reminder-worker
+    env_file:
+      - ./backend/.env
+    environment:
+      - RABBITMQ_URL=amqp://todo:todo@rabbitmq:5672
+      - REMINDER_QUEUE=reminder.jobs
+      - NOTIFICATION_FUNCTION_URL=http://notification-function:7000/notify
+    depends_on:
+      - rabbitmq
+    restart: unless-stopped
+
+  notification-function:
+    build: ./notification-function
+    container_name: todo-notification-function
+    ports:
+      - "7000:7000"
+    environment:
+      - PORT=7000
+    restart: unless-stopped
+
+  attachment-processor:
+    build: ./attachment-processor
+    container_name: todo-attachment-processor
+    env_file:
+      - ./backend/.env
+    environment:
+      - RABBITMQ_URL=amqp://todo:todo@rabbitmq:5672
+      - ATTACHMENT_QUEUE=attachment.uploaded
+    depends_on:
+      - rabbitmq
+    restart: unless-stopped
+  
+volumes:
+  minio-data:

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - config/configmap.yaml
+  - rabbitmq/rabbitmq.yaml
+  - minio/minio.yaml
+  - backend/backend.yaml
+  - frontend/frontend.yaml
+  - reminder-worker/reminder-worker.yaml
+  - attachment-processor/attachment-processor.yaml
+  - knative/notification-function-ksvc.yaml

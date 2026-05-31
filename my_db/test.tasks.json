@@ -1,0 +1,153 @@
+[{
+  "_id": {
+    "$oid": "697ce9d16fd1d7317320b0f7"
+  },
+  "title": "brand new test",
+  "priority": "medium",
+  "__v": 0,
+  "completed": true,
+  "updatedAt": {
+    "$date": "2026-01-30T19:12:04.970Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697de7767bd815bfb79ffc50"
+  },
+  "title": "test",
+  "description": "this is a note of a reminder",
+  "priority": "high",
+  "dueAt": {
+    "$date": "2026-01-31T14:31:00.000Z"
+  },
+  "remindAt": {
+    "$date": "2026-01-31T11:30:00.000Z"
+  },
+  "completed": true,
+  "notifiedInApp": true,
+  "createdAt": {
+    "$date": "2026-01-31T11:28:54.429Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T11:54:01.236Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697dea477bd815bfb79ffc6f"
+  },
+  "title": "TEST NOTIF",
+  "description": "should appear in bell",
+  "priority": "medium",
+  "remindAt": {
+    "$date": "2020-01-01T10:00:00.000Z"
+  },
+  "completed": true,
+  "notifiedInApp": true,
+  "createdAt": {
+    "$date": "2026-01-31T11:40:55.888Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T11:54:00.429Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697deedf65c1f4f112a1a700"
+  },
+  "title": "new",
+  "description": "sdsdsdsd",
+  "priority": "medium",
+  "dueAt": {
+    "$date": "2026-01-31T12:03:00.000Z"
+  },
+  "remindAt": {
+    "$date": "2026-01-31T12:01:00.000Z"
+  },
+  "completed": true,
+  "notifiedInApp": true,
+  "createdAt": {
+    "$date": "2026-01-31T12:00:31.690Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T12:01:23.122Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697df668ac18b41c5c31f663"
+  },
+  "title": "xxxxx",
+  "description": "ssssss",
+  "priority": "medium",
+  "dueAt": {
+    "$date": "2026-01-31T12:34:00.000Z"
+  },
+  "remindAt": {
+    "$date": "2026-01-31T12:33:00.000Z"
+  },
+  "completed": true,
+  "notifiedInApp": true,
+  "createdAt": {
+    "$date": "2026-01-31T12:32:40.424Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T12:33:27.177Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697f1e22528ad89b6a150f97"
+  },
+  "userId": {
+    "$oid": "697e061f059aff4cfc3caf39"
+  },
+  "title": "wwwwwwwww",
+  "description": "w",
+  "priority": "medium",
+  "dueAt": {
+    "$date": "2026-02-15T09:20:00.000Z"
+  },
+  "remindAt": {
+    "$date": "2026-02-06T09:14:00.000Z"
+  },
+  "completed": false,
+  "notifiedInApp": false,
+  "createdAt": {
+    "$date": "2026-02-01T09:34:26.383Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-01T10:37:40.807Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "697f9fdf5d3e6a9aee449b16"
+  },
+  "userId": {
+    "$oid": "697e03c9059aff4cfc3caf1a"
+  },
+  "title": "this is new title for the rem",
+  "description": "this is a new note for the rem",
+  "priority": "low",
+  "dueAt": {
+    "$date": "2026-02-01T21:48:00.000Z"
+  },
+  "remindAt": {
+    "$date": "2026-02-01T18:49:00.000Z"
+  },
+  "completed": true,
+  "notifiedInApp": true,
+  "createdAt": {
+    "$date": "2026-02-01T18:47:59.535Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-01T18:49:47.116Z"
+  },
+  "__v": 0
+}]
