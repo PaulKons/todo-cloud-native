@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "192.168.27.134:32000"
+        REGISTRY = "localhost:32000"
         IMAGE_TAG = "ci-${BUILD_NUMBER}"
     }
 
