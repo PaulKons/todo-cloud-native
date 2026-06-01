@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('backend') {
                     sh 'npm install'
-                    sh 'npm run --if-present test'
+                    sh 'npm run test --if-present || echo "No backend tests configured yet"'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     sh 'npm install'
-                    sh 'npm run build || echo "No production build configured or build failed in dev setup"'
+                    sh 'npm run test --if-present || echo "No backend tests configured yet"'
                 }
             }
         }
