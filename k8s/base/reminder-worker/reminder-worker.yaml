@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: reminder-worker
-          image: localhost:32000/todo-reminder-worker:ci-10
+          image: localhost:32000/todo-reminder-worker:ci-12
           imagePullPolicy: Always
           env:
             - name: NODE_ENV

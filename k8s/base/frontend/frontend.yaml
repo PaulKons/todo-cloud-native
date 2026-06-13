@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: localhost:32000/todo-frontend:ci-10
+          image: localhost:32000/todo-frontend:ci-12
           imagePullPolicy: Always
           ports:
             - containerPort: 5173
