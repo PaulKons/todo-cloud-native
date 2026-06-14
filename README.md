@@ -29,32 +29,33 @@ The system runs locally on a MicroK8s Kubernetes cluster.
 
 ## 2. Architecture
 
+````markdown
 ```mermaid
 flowchart TD
-    U[User] --> FE[React Frontend]
-    FE --> BE[Express Backend API]
+    U["User"] --> FE["React Frontend"]
+    FE --> BE["Express Backend API"]
 
-    BE --> DB[(MongoDB Atlas)]
-    BE --> MQ[(RabbitMQ)]
-    BE --> OS[(MinIO Object Storage)]
+    BE --> DB[("MongoDB Atlas")]
+    BE --> MQ[("RabbitMQ")]
+    BE --> OS[("MinIO Object Storage")]
 
-    MQ --> AP[Attachment Processor]
-    MQ --> RW[Reminder Worker]
+    MQ --> AP["Attachment Processor"]
+    MQ --> RW["Reminder Worker"]
 
     AP --> DB
     AP --> OS
 
-    RW --> KF[Knative Notification Function]
+    RW --> KF["Knative Notification Function"]
     KF --> RW
     RW --> DB
 
-    BE --> MET[/metrics]
-    MET --> PR[Prometheus]
-    PR --> GR[Grafana]
+    BE --> MET["Backend metrics endpoint"]
+    MET --> PR["Prometheus"]
+    PR --> GR["Grafana"]
 
-    GH[GitHub Repository] --> JE[Jenkins CI]
-    JE --> REG[MicroK8s Local Registry]
+    GH["GitHub Repository"] --> JE["Jenkins CI"]
+    JE --> REG["MicroK8s Local Registry"]
     JE --> GH
 
-    GH --> AR[ArgoCD]
-    AR --> K8S[MicroK8s Cluster]
+    GH --> AR["ArgoCD"]
+    AR --> K8S["MicroK8s Cluster"]
