@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: localhost:32000/todo-backend:ci-22
+          image: localhost:32000/todo-backend:ci-24
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
