@@ -29,7 +29,6 @@ The system runs locally on a MicroK8s Kubernetes cluster.
 
 ## 2. Architecture
 
-````markdown
 ```mermaid
 flowchart TD
     U["User"] --> FE["React Frontend"]
