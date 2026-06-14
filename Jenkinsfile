@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         REGISTRY = "localhost:32000"
+        GHCR_REGISTRY = "ghcr.io"
+        GHCR_NAMESPACE = "paulkons"
         IMAGE_TAG = "ci-${BUILD_NUMBER}"
     }
 
@@ -54,17 +56,40 @@ pipeline {
             }
         }
 
+        stage('Login to GitHub Container Registry') {
+            when {
+                expression { env.SKIP_CI != 'true' }
+            }
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'github-packages-pavlos',
+                    usernameVariable: 'GHCR_USER',
+                    passwordVariable: 'GHCR_TOKEN'
+                )]) {
+                    sh '''
+                    echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
         stage('Build Docker images') {
             when {
                 expression { env.SKIP_CI != 'true' }
             }
             steps {
                 sh '''
-                  docker build -t $REGISTRY/todo-backend:$IMAGE_TAG ./backend
-                  docker build -t $REGISTRY/todo-frontend:$IMAGE_TAG ./frontend
-                  docker build -t $REGISTRY/todo-reminder-worker:$IMAGE_TAG ./reminder-worker
-                  docker build -t $REGISTRY/todo-notification-function:$IMAGE_TAG ./notification-function
-                  docker build -t $REGISTRY/todo-attachment-processor:$IMAGE_TAG ./attachment-processor
+                docker build -t $REGISTRY/todo-backend:$IMAGE_TAG ./backend
+                docker build -t $REGISTRY/todo-frontend:$IMAGE_TAG ./frontend
+                docker build -t $REGISTRY/todo-reminder-worker:$IMAGE_TAG ./reminder-worker
+                docker build -t $REGISTRY/todo-notification-function:$IMAGE_TAG ./notification-function
+                docker build -t $REGISTRY/todo-attachment-processor:$IMAGE_TAG ./attachment-processor
+
+                docker tag $REGISTRY/todo-backend:$IMAGE_TAG $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-backend:$IMAGE_TAG
+                docker tag $REGISTRY/todo-frontend:$IMAGE_TAG $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-frontend:$IMAGE_TAG
+                docker tag $REGISTRY/todo-reminder-worker:$IMAGE_TAG $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-reminder-worker:$IMAGE_TAG
+                docker tag $REGISTRY/todo-notification-function:$IMAGE_TAG $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-notification-function:$IMAGE_TAG
+                docker tag $REGISTRY/todo-attachment-processor:$IMAGE_TAG $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-attachment-processor:$IMAGE_TAG
                 '''
             }
         }
@@ -75,11 +100,17 @@ pipeline {
             }
             steps {
                 sh '''
-                  docker push $REGISTRY/todo-backend:$IMAGE_TAG
-                  docker push $REGISTRY/todo-frontend:$IMAGE_TAG
-                  docker push $REGISTRY/todo-reminder-worker:$IMAGE_TAG
-                  docker push $REGISTRY/todo-notification-function:$IMAGE_TAG
-                  docker push $REGISTRY/todo-attachment-processor:$IMAGE_TAG
+                docker push $REGISTRY/todo-backend:$IMAGE_TAG
+                docker push $REGISTRY/todo-frontend:$IMAGE_TAG
+                docker push $REGISTRY/todo-reminder-worker:$IMAGE_TAG
+                docker push $REGISTRY/todo-notification-function:$IMAGE_TAG
+                docker push $REGISTRY/todo-attachment-processor:$IMAGE_TAG
+
+                docker push $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-backend:$IMAGE_TAG
+                docker push $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-frontend:$IMAGE_TAG
+                docker push $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-reminder-worker:$IMAGE_TAG
+                docker push $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-notification-function:$IMAGE_TAG
+                docker push $GHCR_REGISTRY/$GHCR_NAMESPACE/todo-attachment-processor:$IMAGE_TAG
                 '''
             }
         }
