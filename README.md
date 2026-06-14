@@ -58,6 +58,10 @@ flowchart TD
 
     GH --> AR["ArgoCD"]
     AR --> K8S["MicroK8s Cluster"]
+```
+
+---
+
 ## Container Images
 
 The Jenkins pipeline builds and publishes all application images to two registries:
