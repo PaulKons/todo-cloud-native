@@ -58,3 +58,20 @@ flowchart TD
 
     GH --> AR["ArgoCD"]
     AR --> K8S["MicroK8s Cluster"]
+## Container Images
+
+The Jenkins pipeline builds and publishes all application images to two registries:
+
+| Registry | Purpose |
+|---|---|
+| MicroK8s local registry `localhost:32000` | Used by the local MicroK8s deployment |
+| GitHub Container Registry `ghcr.io/paulkons` | Used for external image publication under the project owner's GitHub account |
+
+Published images:
+
+```text
+ghcr.io/paulkons/todo-backend
+ghcr.io/paulkons/todo-frontend
+ghcr.io/paulkons/todo-reminder-worker
+ghcr.io/paulkons/todo-attachment-processor
+ghcr.io/paulkons/todo-notification-function
