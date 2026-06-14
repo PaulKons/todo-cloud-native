@@ -159,7 +159,7 @@ sla-tests/results/high-cdf.png
 
 Markdown reference:
 
-sla-tests/results/high-cdf.png
+![High-load CDF](results/high-cdf.png)
 
 The CDF graph shows the distribution of backend response times under the highest tested load of 50 virtual users.
 
