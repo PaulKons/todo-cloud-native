@@ -12,7 +12,7 @@ spec:
         autoscaling.knative.dev/initial-scale: "1"
     spec:
       containers:
-        - image: localhost:32000/todo-notification-function:ci-16
+        - image: localhost:32000/todo-notification-function:ci-17
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 7000
