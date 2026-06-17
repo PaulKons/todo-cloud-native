@@ -77,7 +77,7 @@ async function start() {
 
   const { channel } = await connectRabbitMQ();
 
-  console.log(`👂 Listening on queue: ${ATTACHMENT_QUEUE}`);
+  console.log(`--> Listening on queue: ${ATTACHMENT_QUEUE}`);
 
   channel.consume(
     ATTACHMENT_QUEUE,
