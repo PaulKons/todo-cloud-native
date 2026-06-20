@@ -55,7 +55,7 @@ async function connectRabbitMQ(retries = 10, delayMs = 3000) {
       return { connection, channel };
     } catch (err) {
       console.error(
-        `❌ RabbitMQ connection attempt ${attempt}/${retries} failed: ${err.message}`
+        `--> RabbitMQ connection attempt ${attempt}/${retries} failed: ${err.message}`
       );
 
       if (attempt === retries) {
