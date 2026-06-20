@@ -79,6 +79,7 @@ ghcr.io/paulkons/todo-frontend
 ghcr.io/paulkons/todo-reminder-worker
 ghcr.io/paulkons/todo-attachment-processor
 ghcr.io/paulkons/todo-notification-function
+```
 
 ---
 
