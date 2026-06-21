@@ -50,7 +50,7 @@ async function connectRabbitMQ(retries = 10, delayMs = 3000) {
 
       await channel.assertQueue(ATTACHMENT_QUEUE, { durable: true });
 
-      console.log("✅ Attachment processor connected to RabbitMQ");
+      console.log("--> Attachment processor connected to RabbitMQ");
 
       return { connection, channel };
     } catch (err) {
