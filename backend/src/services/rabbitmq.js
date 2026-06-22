@@ -3,7 +3,7 @@ const amqp = require("amqplib");
 let connection = null;
 let channel = null;
 
-async function getChannel(retries = 10, delayMs = 3000) {
+async function getChannel(retries = 60, delayMs = 3000) {
   if (channel) return channel;
 
   const rabbitUrl = process.env.RABBITMQ_URL;
