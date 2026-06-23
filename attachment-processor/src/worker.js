@@ -73,7 +73,7 @@ async function start() {
   }
 
   await mongoose.connect(MONGODB_URI);
-  console.log("--> Attachment processor connected to MongoDB Atlas");
+  console.log("** Attachment processor connected to MongoDB Atlas");
 
   const { channel } = await connectRabbitMQ();
 
