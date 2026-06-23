@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: attachment-processor
-          image: localhost:32000/todo-attachment-processor:ci-44
+          image: localhost:32000/todo-attachment-processor:ci-47
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
